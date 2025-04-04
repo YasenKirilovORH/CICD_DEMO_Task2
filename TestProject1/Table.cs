@@ -14,7 +14,21 @@ namespace TestProject2
         public void SetUp()
         {
             // Create object of ChromeDriver
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            // Ensure Chrome runs in headless mode
+            options.AddArguments("headless");
+            // Bypas OS security model
+            options.AddArguments("no-sandbox");
+            // Overcome limited resource problem
+            options.AddArguments("disable-dev-shm-usage");
+            // Applicable to Windows OS only
+            options.AddArguments("disable-gpu");
+            // Disable extensions
+            options.AddArguments("disable-extensions");
+            // Remote debuging port
+            options.AddArguments("remote-debugging-port=9222");
+
+            driver = new ChromeDriver(options);
 
             // Add implicit wait
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
