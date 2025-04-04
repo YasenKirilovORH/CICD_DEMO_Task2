@@ -24,9 +24,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Run tests
       run: |
-      echo "Running TestProject1"
-      dotnet test TestProject1/TestProject1.csproj --verbosity normal
+       echo "Running TestProject1"
+       dotnet test TestProject1/TestProject1.csproj --verbosity normal
     - name: Run tests
       run: |
-      echo "Running TestProject2"
-      dotnet test TestProject/TestProject2.csproj --verbosity normal
+       echo "Running TestProject2"
+       dotnet test TestProject/TestProject2.csproj --verbosity normal
