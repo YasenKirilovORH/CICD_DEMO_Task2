@@ -4,6 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using System.Collections.ObjectModel;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TestProject3
 {
@@ -93,10 +94,13 @@ namespace TestProject3
                         File.AppendAllText(path, row.Text + "\n");
                     }
                 }
-            }
-
-            // Quit the driver
+            }      
+        }
+        [TearDown]
+        public void TearDown()
+        {
             driver.Quit();
+            driver.Dispose();
         }
     }
 }
